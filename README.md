@@ -1,5 +1,7 @@
 # Схема баз данных
 
+
+
 ```mermaid
 erDiagram
   auth_user ||--|| user_profile : has
@@ -64,7 +66,10 @@ erDiagram
 ```
 <hr>
 
+
 # Пример работы kafka и wesocket, когда данные нужно отправлять асинхронно в real-time
+
+
 
 ```mermaid
 sequenceDiagram
