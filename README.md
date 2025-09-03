@@ -67,7 +67,7 @@ erDiagram
 <hr>
 
 
-# Пример работы kafka и wesocket, когда данные нужно отправлять асинхронно в real-time
+# Пример работы kafka и websocket, когда данные нужно отправлять асинхронно в real-time
 
 
 
