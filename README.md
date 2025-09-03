@@ -25,14 +25,6 @@ erDiagram
         string city "Город"
     }
 
-    passport {
-        bigint id PK "Идентификатор"
-        bigint user_id FK "Ссылка на user_profile.user_id"
-        string series "Серия"
-        string number "Номер"
-        string issued_by "Кем выдан"
-    }
-
     record {
         bigint id PK "Идентификатор"
         bigint user_id FK "Ссылка на user_profile.user_id"
@@ -49,7 +41,7 @@ erDiagram
         datetime created_at "Дата создания"
     }
 
-    pet {
+    petPassport {
         bigint id PK "Идентификатор"
         bigint user_id FK "Ссылка на user_profile.user_id"
         string name "Кличка"
