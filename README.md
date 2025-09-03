@@ -1,11 +1,11 @@
 ```mermaid
 erDiagram
-    ||--o{ auth_user : "has"
-    auth_user ||--|| user_profile : "has"
-    user_profile ||--o{ passports : "has"
-    user_profile ||--o{ records : "has"
-    user_profile ||--o{ orders : "has"
-    user_profile ||--o{ pets : "has"
+  auth_user ||--|| user_profile : has
+    user_profile ||--o{ passport : has
+    user_profile ||--o{ record : has
+    user_profile ||--o{ order : has
+    user_profile ||--o{ pet : has
+    user_profile ||--o{ medical_book : has
 
     auth_user {
         bigint id PK "Идентификатор (user_id)"
@@ -25,7 +25,7 @@ erDiagram
         string city "Город"
     }
 
-    passports {
+    passport {
         bigint id PK "Идентификатор"
         bigint user_id FK "Ссылка на user_profile.user_id"
         string series "Серия"
@@ -33,7 +33,7 @@ erDiagram
         string issued_by "Кем выдан"
     }
 
-    records {
+    record {
         bigint id PK "Идентификатор"
         bigint user_id FK "Ссылка на user_profile.user_id"
         datetime datetime "Дата и время записи"
@@ -41,7 +41,7 @@ erDiagram
         string status "Статус"
     }
 
-    orders {
+    order {
         bigint id PK "Идентификатор"
         bigint user_id FK "Ссылка на user_profile.user_id"
         decimal amount "Сумма заказа"
@@ -49,7 +49,7 @@ erDiagram
         datetime created_at "Дата создания"
     }
 
-    pets {
+    pet {
         bigint id PK "Идентификатор"
         bigint user_id FK "Ссылка на user_profile.user_id"
         string name "Кличка"
@@ -63,7 +63,7 @@ erDiagram
         integer passport_number UK "Номер паспорта"
     }
 
-    medical_books {
+    medical_book {
         ObjectId _id PK "Идентификатор (MongoDB)"
         bigint user_id "Ссылка на user_profile.user_id"
         jsonb data "Данные медкнижки (гибкая структура)"
