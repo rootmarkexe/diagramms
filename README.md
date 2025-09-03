@@ -1,3 +1,4 @@
+```mermaid
 erDiagram
     ||--o{ auth_user : "has"
     auth_user ||--|| user_profile : "has"
@@ -67,3 +68,4 @@ erDiagram
         bigint user_id "Ссылка на user_profile.user_id"
         jsonb data "Данные медкнижки (гибкая структура)"
     }
+```
