@@ -1,10 +1,9 @@
 ```mermaid
 erDiagram
   auth_user ||--|| user_profile : has
-    user_profile ||--o{ passport : has
     user_profile ||--o{ record : has
     user_profile ||--o{ order : has
-    user_profile ||--o{ pet : has
+    user_profile ||--o{ petPassport : has
     user_profile ||--o{ medical_book : has
 
     auth_user {
