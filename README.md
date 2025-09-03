@@ -73,7 +73,7 @@ erDiagram
 
 ```mermaid
 sequenceDiagram
-    participant Врач
+    participant Вет клиника
     participant CRM
     participant MongoDB
     participant Kafka
@@ -81,7 +81,7 @@ sequenceDiagram
     participant WebSocket
     participant Пользователь
 
-    Врач->>CRM: Создает запись о прививке
+    Вет клиника->>CRM: Создает запись о прививке
     CRM->>MongoDB: Сохраняет запись в medical_books
     CRM->>Kafka: Отправляет событие "vaccination_appointment_created"
     
