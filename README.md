@@ -60,3 +60,29 @@ erDiagram
         jsonb data "Данные медкнижки (гибкая структура)"
     }
 ```
+<hr>
+
+sequenceDiagram
+    participant Врач
+    participant CRM
+    participant MongoDB
+    participant Kafka
+    participant NotificationService
+    participant WebSocket
+    participant Пользователь
+
+    Врач->>CRM: Создает запись о прививке
+    CRM->>MongoDB: Сохраняет запись в medical_books
+    CRM->>Kafka: Отправляет событие "vaccination_appointment_created"
+    
+    Note right of Kafka: Событие содержит:<br/>user_id, дату, тип прививки
+    
+    NotificationService->>Kafka: Постоянно слушает события
+    Kafka->>NotificationService: Передает событие о прививке
+    
+    NotificationService->>NotificationService: Планирует напоминание<br/>за 3 дня до даты прививки
+    
+    Note right of NotificationService: В нужное время...
+    
+    NotificationService->>WebSocket: Отправляет уведомление
+    WebSocket->>Пользователь: Получает напоминание<br/>в реальном времени
