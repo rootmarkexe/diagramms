@@ -8,7 +8,7 @@ erDiagram
     user_profile ||--o{ record : has
     user_profile ||--o{ order : has
     user_profile ||--o{ petPassport : has
-    user_profile ||--o{ medical_book : has
+    petPassport ||--o{ medical_book : has
 
     auth_user {
         bigint id PK "Идентификатор (user_id)"
